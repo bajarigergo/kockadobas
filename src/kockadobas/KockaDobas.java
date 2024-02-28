@@ -69,19 +69,26 @@ public class KockaDobas {
                 int dobas = veletlen.nextInt(2, 13);
                 sorozat[dobas-2]++;
             }
+            int legn = 0;
+            for (int i = 0; i < sorozat.length; i++) {
+            if (sorozat[i]>sorozat[legn]){
+            legn = i;
+            }
+            
+        }
             for (int i = 0; i < sorozat.length; i++) {
                 if (sorozat[i]!=0){
-                int csillagok = be/sorozat[i];
+                double arany = (double)sorozat[i]/(double)sorozat[legn];
                 System.out.printf("%d ",i+2);
-                int j = 10;
-                while (j > csillagok){
-                    System.out.printf("*");
-                    csillagok++;
-                }
+                    for (int j = 0; j < (int) arany*10; j++) {
+                        System.out.printf("*");   
+                    }
                 System.out.printf(" (%d db)\n",sorozat[i]);
+                }
+                
         }
     }
-    }
+    
     
     
 }
